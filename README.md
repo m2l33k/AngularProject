@@ -24,4 +24,18 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI, use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+---
+
+# Class Project Checklist
+
+### Workshop Progress
+- [x] **Workshop 0:** Build Angular Project (Done)
+- [x] **Workshop 1:**  Manipulation des composants
+- [ ] **Workshop 2:**  Implémentation d’un système de navigation
+- [ ] **Workshop 3:** []
+
+### Notes
+- Update the checklist as you complete each workshop.
+- Add detailed descriptions for each workshop if needed.
