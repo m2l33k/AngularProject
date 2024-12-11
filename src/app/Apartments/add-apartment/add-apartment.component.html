@@ -1,0 +1,34 @@
+<form [formGroup]="addapartement">
+<label for="apartNum">apartNum:</label>
+<input type="text" formControlName="apartNum">
+
+<label for="floorNum">floorNum:</label>
+<input type="text" formControlName="floorNum">
+
+<label for="surface">surface:</label>
+<input type="text" formControlName="surface">
+
+<label for="terrace">terrace:</label>
+<div>
+    <input type="radio" formControlName="terrace" value="yes" >yes
+    <input type="radio" formControlName="terrace" value="Non">non
+</div>
+
+<label for="surfaceterrace">surfaceterrace:</label>
+<input type="text" formControlName="surfaceterrace">
+
+
+<label for="category">category:</label>
+<div>
+    <input type="radio" formControlName="category" value="S+1" >s+1
+    <input type="radio" formControlName="category" value="S+2">s+2
+    <input type="radio" formControlName="category" value="S+3">s+3
+</div>
+
+
+<label for="ResidenceId">ResidenceId:</label>
+<input type="text" formControlName="ResidenceId">
+
+
+
+</form>
