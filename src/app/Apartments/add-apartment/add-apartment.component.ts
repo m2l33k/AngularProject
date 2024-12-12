@@ -1,5 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+
+interface Apartment {
+  apartmentNumber: string;
+  floorNumber: string;
+  surface: string;
+  hasTerrace: boolean;
+  terraceSurface: string;
+  category: string;
+  residenceId: string;
+}
 
 @Component({
   selector: 'app-add-apartment',
@@ -8,18 +18,30 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class AddApartmentComponent {
 
+    apartementform = new FormGroup({
+    apartNum: new FormControl('' , Validators.required),
+    floorNum: new FormControl('' , Validators.required),
+    surface: new FormControl('' , Validators.required),
+    terrace: new FormControl('yes' , Validators.required),
+    surfaceterrace: new FormControl('' , Validators.required),
+    category: new FormControl('S+1' , Validators.required),
+    ResidenceId: new FormControl('' , Validators.required)
+    });
+    addApartment(){
+      const apartmentData = this.apartementform.value;
+  
+      
+      const newApartment: Apartment = {
+        apartmentNumber: apartmentData.apartNum!,
+        floorNumber: apartmentData.floorNum!,
+        surface: apartmentData.surface!,
+        hasTerrace: apartmentData.terrace === 'yes',
+        terraceSurface: apartmentData.surfaceterrace!,
+        category: apartmentData.category!,
+        residenceId: apartmentData.ResidenceId!
+      };
 
-  addapartement:FormGroup
-  constructor(private fb:FormBuilder) { 
-    this.addapartement=this.fb.group({
-      apartNum:[''],
-      floorNum:[''],
-      surface:[''],
-      terrace:['yes'],
-      surfaceterrace:[''],
-      category:['S+1'],
-      ResidenceId:['']
-    })
+    console.log('New Apartment:', newApartment);
   }
 
 }
