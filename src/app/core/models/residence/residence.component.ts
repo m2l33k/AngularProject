@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { Residence } from './residence.model';
 import { ResidenceService } from '../../serivces/residence.service';
+import { CommonService } from '../../serivces/common.service';
 
 
 
@@ -19,6 +20,13 @@ export class ResidenceComponent {
   ngOnInit() {
     this.residenceService.getResidences().subscribe(data => {
       this.listResidences = data;
+    });
+  }
+
+  deleteResidence(id: number): void {
+    this.residenceService.deleteResidence(id).subscribe(() => {
+      this.listResidences = this.listResidences.filter(residence => residence.id !== id);
+      alert('Résidence supprimée avec succès !');
     });
   }
 

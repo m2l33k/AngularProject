@@ -23,6 +23,10 @@
       <button (click)="toggleFavorite(residence)">
         {{ isFavorite(residence) ? 'Remove from Favorites' : 'Add to Favorites' }}
       </button>
+      <!-- Bouton de suppression -->
+      <button (click)="deleteResidence(residence.id)" class="delete-button">
+        Supprimer
+      </button>
     </div>
   </div>
 </body>

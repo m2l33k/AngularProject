@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 // import { Apartment } from '../core/models'; // Ensure this path is correct or the module exists
 //import { residence } from '../models';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 export class AddResidenceComponent {
   residenceForm: FormGroup;
   apartmentForm: FormGroup ; 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.residenceForm = this.fb.group({
       id: [],
       name: ['', Validators.required, Validators.minLength(3)],
@@ -31,7 +32,7 @@ export class AddResidenceComponent {
       residenceId: ['', Validators.required]
     });
   }
-
+  
   get apartments() {
     return this.residenceForm.get('apartments') as FormArray;
   }
@@ -42,5 +43,8 @@ export class AddResidenceComponent {
   }
   onSubmit() {
     console.log(this.residenceForm.value);
+    alert('Résidence ajoutée ou modifiée avec succès !');
+    this.router.navigate(['/residences']);
   }
+
 }

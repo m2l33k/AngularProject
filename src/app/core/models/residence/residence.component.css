@@ -1,4 +1,17 @@
 /* Search Container */
+.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #e60000;
+}
+
 .search-container {
   margin: 20px auto;
   max-width: 500px;
