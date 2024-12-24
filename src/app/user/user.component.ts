@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',

@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Residence } from './residence.model';
+import { ResidenceService } from '../../serivces/residence.service';
+
+
+
 
 @Component({
   selector: 'app-residence',
@@ -8,11 +12,15 @@ import { Residence } from './residence.model';
 })
 export class ResidenceComponent {
 
-  listResidences: Residence[] = [
-    { id: 1, name: 'Residence 1', address: '123 Main St', image: 'image1.jpg', status: 'Disponible' },
-    { id: 2, name: 'Residence 2', address: 'Inconnu', image: 'image2.jpg', status: 'En Construction' },
-    { id: 3, name: 'Residence 3', address: '456 Elm St', image: 'image3.jpg', status: 'Vendu' },
-  ];
+  listResidences: Residence[] = [];
+
+  constructor(  private residenceService: ResidenceService) {}
+
+  ngOnInit() {
+    this.residenceService.getResidences().subscribe(data => {
+      this.listResidences = data;
+    });
+  }
 
   showLocation(residence: Residence) {
     if (residence.address === 'Inconnu') {
